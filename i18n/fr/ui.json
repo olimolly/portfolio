@@ -1,0 +1,28 @@
+{
+    "nav": {
+        "home": "Accueil",
+        "projects": "Projets",
+        "blog": "Blog",
+        "contact": "Contact",
+        "seeProjects": "Voir quelques projets."
+    },
+    "cta": {
+        "hireMe": "Me contacter"
+    },
+    "home": {
+        "title": "Home",
+        "description": "Portfolio perso, full-stack développeur web.",
+        "heroTitle": "Hello",
+        "heroSubtitle": "Je développe des applications web modernes avec Next.js et TypeScript, en traduisant des exigences complexes en solutions claires et utilisables."
+    },
+    "contact": {
+        "title": "Contact",
+        "description": "Contactez-moi pour une mission freelance, un poste, ou une collaboration.",
+        "headline": "Développons des applis ensemble !",
+        "text": "Je suis ouvert aux opportunités. Contactez moi: ",
+        "emailLabel": "Email",
+        "linkedinLabel": "LinkedIn",
+        "githubLabel": "GitHub",
+        "cvLabel": "Télécharger le CV"
+    }
+}

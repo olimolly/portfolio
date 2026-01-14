@@ -1,0 +1,28 @@
+{
+    "nav": {
+        "home": "Home",
+        "projects": "Projects",
+        "blog": "Blog",
+        "contact": "Contact",
+        "seeProjects": "See projects"
+    },
+    "cta": {
+        "hireMe": "Contact me"
+    },
+    "home": {
+        "title": "Home",
+        "description": "Personal portfolio of Olivier, full-stack web developer.",
+        "heroTitle": "Hi, I am Olivier, I like dark blue & scroll effects.",
+        "heroSubtitle": "I create modern web applications with Next.js and TypeScript, turning complex requirements into reliable, user-focused products."
+    },
+    "contact": {
+        "title": "Contact",
+        "description": "Get in touch for freelance work, full-time roles, or collaborations.",
+        "headline": "Let’s create apps together !",
+        "text": "I am open to projects and opportunities. Contact me: ",
+        "emailLabel": "Email",
+        "linkedinLabel": "LinkedIn",
+        "githubLabel": "GitHub",
+        "cvLabel": "Download CV"
+    }
+}
