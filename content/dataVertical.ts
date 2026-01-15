@@ -9,11 +9,6 @@ export const featured = (lang: string): ParallaxProject[] => [
     {
         title: "Ambassade de France en Autriche",
         href: `/${lang}/projects/ambassade/`,
-        logoSrc: "/logos/amba-test-3d.png",
-    },
-    {
-        title: "Ambassade de France en Autriche",
-        href: `/${lang}/projects/ambassade/`,
         logoSrc: "/logos/amba-min-72.png",
     },
     {

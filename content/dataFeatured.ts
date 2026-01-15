@@ -9,14 +9,14 @@ export const vertical = (lang: string): VerticalProject[] => [
         href: `/${lang}/projects/orbat-creator/`,
         tags: ["Next.js", "TypeScript", "UX", "Design", "Brand", "Front-end"],
     },
-    {
-        slug: "ambassade",
-        title: "Ambassade de France en Autriche",
-        summary: "Operations, events, and content system for a gaming community.",
-        logoSrc: "/logos/amba-test-3d.png", // logoSrc: "/logos/amba-min-72.png",
-        href: `/${lang}/projects/ambassade/`,
-        tags: ["Administration des systèmes.", "GLPI"],
-    },
+    // {
+    //     slug: "ambassade",
+    //     title: "Ambassade de France en Autriche",
+    //     summary: "Operations, events, and content system for a gaming community.",
+    //     logoSrc: "/logos/amba-test-3d.png", // logoSrc: "/logos/amba-min-72.png",
+    //     href: `/${lang}/projects/ambassade/`,
+    //     tags: ["Administration des systèmes.", "GLPI"],
+    // },
     {
         slug: "ambassade-",
         title: "Ambassade de France en Autriche",
