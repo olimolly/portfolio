@@ -162,7 +162,7 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
 
             const centerAbs = window.scrollY + vh * 0.5;
 
-            // ✅ 0% quand center = top + vh/2 ; 100% quand center = bottom - vh/2
+            // 0% quand center = top + vh/2 ; 100% quand center = bottom - vh/2
             const start = topAbs + vh * 0.5;
             const end = bottomAbs - vh * 0.5;
             const denom = Math.max(1, end - start);
@@ -254,7 +254,7 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
 
     return (
         <div className="grid gap-8 lg:grid-cols-[340px_1fr]">
-            {/* ✅ Desktop only: carte dynamique à gauche */}
+            {/* Desktop only: carte dynamique à gauche */}
             <aside className="hidden lg:block lg:sticky lg:top-16 lg:h-[calc(100vh-4rem)]">
                 <div className={CARD_CLASS}>
                     <div className="flex items-center gap-4">
@@ -320,7 +320,7 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
                     />
                 </div>
 
-                {/* ✅ Mobile: petite progress bar simple au-dessus de la liste (optionnel, utile) */}
+                {/* Mobile: petite progress bar simple au-dessus de la liste (optionnel, utile) */}
                 <div className="mb-4 lg:hidden">
                     <div className="mb-2 flex items-center justify-between text-xs text-white/60">
                         <span>Path</span>
