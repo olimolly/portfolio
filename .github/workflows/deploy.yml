@@ -16,8 +16,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
+    env:
+      NEXT_PUBLIC_BASE_PATH: ${{ vars.NEXT_PUBLIC_BASE_PATH }}
     steps:
       - uses: actions/checkout@v4
 
@@ -30,8 +30,6 @@ jobs:
       - run: echo "BASE=$NEXT_PUBLIC_BASE_PATH"
       - run: npm run build
       - run: touch out/.nojekyll
-      - run: grep -R "/portfolio/logos" -n out || true
-      - run: grep -R 'src="/logos' -n out | head -n 20 || true
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
@@ -41,7 +39,5 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    environment:
-      name: github-pages
     steps:
       - uses: actions/deploy-pages@v4
