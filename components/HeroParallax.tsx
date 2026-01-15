@@ -1,5 +1,6 @@
 "use client";
 
+import { withBasePath } from "@/lib/withBasePath";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -86,7 +87,7 @@ function Card({ p }: { p: ParallaxProject }) {
             className="flex min-w-[240px] items-center gap-3 rounded-2xl border border-border bg-background px-4 py-3 hover:opacity-90"
         >
             <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card">
-                <Image src={p.logoSrc} alt={p.title} width={28} height={28} />
+                <Image src={withBasePath(p.logoSrc)} alt={p.title} width={28} height={28} />
             </div>
             <div>
                 <div className="text-sm font-semibold">{p.title}</div>

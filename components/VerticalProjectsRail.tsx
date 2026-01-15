@@ -1,5 +1,6 @@
 "use client";
 
+import { withBasePath } from "@/lib/withBasePath";
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 
@@ -215,7 +216,7 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
                 <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-md min-h-72">
                     <div className="flex items-center gap-4">
                         <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/10">
-                            <Image src={active.logoSrc} alt={active.title} width={34} height={34} />
+                            <Image src={withBasePath(active.logoSrc)} alt={active.title} width={34} height={34} />
                         </div>
 
                         <div className="min-w-0">
@@ -323,7 +324,7 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
                                     <div className="relative z-20">
                                         <div className="flex items-center gap-4">
                                             <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/10">
-                                                <Image src={p.logoSrc} alt={p.title} width={28} height={28} />
+                                                <Image src={withBasePath(p.logoSrc)} alt={p.title} width={28} height={28} />
                                             </div>
 
                                             <div className="min-w-0">

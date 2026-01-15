@@ -9,6 +9,7 @@ import { SUPPORTED_LANGS, parseLang, type Lang } from "@/lib/lang";
 import { listSlugs, getDoc } from "@/lib/content/reader";
 import { mdxComponents } from "@/lib/content/mdx-components";
 import { ExternalButtonLink } from "@/components/ExternalButtonLink";
+import { withBasePath } from "@/lib/withBasePath";
 
 /* -----------------------------
    Static params (export)
@@ -121,7 +122,7 @@ export default async function ProjectPage({
                 {doc.meta.cover ? (
                     <div className="mt-8 overflow-hidden rounded-3xl border border-border">
                         <Image
-                            src={doc.meta.cover}
+                            src={withBasePath(doc.meta.cover)}
                             alt={doc.meta.title}
                             width={1200}
                             height={630}
