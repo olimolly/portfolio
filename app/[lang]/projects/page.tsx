@@ -1,10 +1,11 @@
 // app/[lang]/projects/page.tsx
-import Link from "next/link";
 import type { Metadata } from "next";
 
 import { SUPPORTED_LANGS, parseLang, type Lang } from "@/lib/lang";
 import { getAllDocs } from "@/lib/content/reader";
 import { getUi } from "@/i18n/getUi";
+// import ProjectsSwitcher from "./ProjectsSwitcher";
+import Link from "next/link";
 
 export function generateStaticParams() {
     return SUPPORTED_LANGS.map((lang) => ({ lang }));
@@ -34,7 +35,9 @@ export default async function ProjectsPage({
     const lang: Lang = parseLang(rawLang);
 
     const ui = await getUi(lang);
+
     const docs = getAllDocs(lang, "projects");
+    // const experiences = getAllDocs(lang, "experiences");
 
     // option: tri par date desc si date existe
     const sorted = [...docs].sort((a, b) => {
@@ -42,6 +45,14 @@ export default async function ProjectsPage({
         const bd = b.meta.date ? Date.parse(b.meta.date) : 0;
         return bd - ad;
     });
+
+    // tri date desc (optionnel) - on fait les deux pour un rendu cohérent
+    // const sortByDateDesc = <T extends { meta: { date?: string } }>(arr: T[]) =>
+    //     [...arr].sort((a, b) => {
+    //         const ad = a.meta.date ? Date.parse(a.meta.date) : 0;
+    //         const bd = b.meta.date ? Date.parse(b.meta.date) : 0;
+    //         return bd - ad;
+    //     });
 
     return (
         <main className="mx-auto w-full max-w-3xl px-6 py-12">
@@ -89,7 +100,16 @@ export default async function ProjectsPage({
                     </li>
                 ))}
             </ul>
-        </main>
 
+            {/* <ProjectsSwitcher
+                lang={lang}
+                ui={{
+                    projectsLabel: ui.projects.projectsLabel,
+                    experiencesLabel: ui.projects.experiencesLabel,
+                }}
+                projects={sortByDateDesc(projects)}
+                // experiences={sortByDateDesc(experiences)}
+            /> */}
+        </main>
     );
 }

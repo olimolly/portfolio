@@ -7,7 +7,7 @@ import type { Lang } from "@/lib/lang";
 import type { ContentDoc } from "./types";
 import { parseFrontMatter } from "./frontmatter";
 
-export type ContentSection = "projects" | "blog";
+export type ContentSection = "projects" | "blog" | "experiences";
 
 const ROOT = process.cwd();
 

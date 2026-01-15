@@ -15,7 +15,7 @@ export const vertical = (lang: string): VerticalProject[] => [
         summary: "Operations, events, and content system for a gaming community.",
         logoSrc: "/logos/amba-test-3d.png", // logoSrc: "/logos/amba-min-72.png",
         href: `/${lang}/projects/ambassade/`,
-        tags: ["Content", "MDX", "Static"],
+        tags: ["Administration des systèmes.", "GLPI"],
     },
     {
         slug: "ambassade-",
@@ -23,7 +23,7 @@ export const vertical = (lang: string): VerticalProject[] => [
         summary: "Operations, events, and content system for a gaming community.",
         logoSrc: "/logos/ministeres.png",
         href: `/${lang}/projects/ambassade/`,
-        tags: ["Content", "MDX", "Static"],
+        tags: ["Administration des systèmes.", "GLPI"],
     },
     {
         slug: "gese-platform",

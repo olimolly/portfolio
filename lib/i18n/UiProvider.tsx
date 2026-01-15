@@ -1,7 +1,7 @@
 "use client";
 
+import { UiMessages } from "@/i18n/ui.types";
 import { createContext, useContext } from "react";
-import type { UiMessages } from "@/i18n/getUi";
 
 const TranslationsContext = createContext<UiMessages | null>(null);
 

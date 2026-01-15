@@ -37,7 +37,7 @@ export default async function Home({
     const ui = await getUi(lang);
 
     return (
-        <main className="mx-auto w-full max-w-3xl px-6 py-16 min-h-500">
+        <main className="mx-auto w-full max-w-7xl px-6 py-16 min-h-[500px]">
             <section className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur">
                 <h1 className="text-4xl font-semibold tracking-tight text-white">
                     {ui.home.heroTitle}

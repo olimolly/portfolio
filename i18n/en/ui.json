@@ -15,6 +15,10 @@
         "heroTitle": "Hi, I am Olivier, I like dark blue & scroll effects.",
         "heroSubtitle": "I create modern web applications with Next.js and TypeScript, turning complex requirements into reliable, user-focused products."
     },
+    "projects": {
+        "projectsLabel": "Projects",
+        "experiencesLabel": "Experiences"
+    },
     "contact": {
         "title": "Contact",
         "description": "Get in touch for freelance work, full-time roles, or collaborations.",

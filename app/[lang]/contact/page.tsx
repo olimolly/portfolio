@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { parseLang, SUPPORTED_LANGS, type Lang } from "@/lib/lang";
 import { getUi } from "@/i18n/getUi";
 import Link from "next/link";
+import { ExternalButtonLink } from "@/components/ExternalButtonLink";
 
 export function generateStaticParams() {
     return SUPPORTED_LANGS.map((lang) => ({ lang }));
@@ -43,36 +44,33 @@ export default async function ContactPage({
                     {ui.contact.headline}
                 </h1>
 
-                <p className="mt-4 text-lg leading-relaxed text-muted">
-                    {ui.contact.text}
-                </p>
+                <div className="mt-8 flex gap-3 items-baseline">
 
-                <div className="mt-8 flex flex-wrap gap-3">
+                    <p className="mt-4 text-lg leading-relaxed text-muted">
+                        {ui.contact.text}
+                    </p>
+
                     {/* <a className="btn btn-primary" href={email}>
-        {ui.contact.emailLabel}
-      </a> */}
+                        {ui.contact.emailLabel}
+                    </a> */}
 
-                    <a
-                        className="btn btn-ghost"
+                    <ExternalButtonLink
                         href={linkedin}
+                        label={ui.contact.linkedinLabel}
+                    />
+
+                    {/* <a
+                        className="btn btn-ghost"
+                        href={github}
                         target="_blank"
                         rel="noreferrer"
                     >
-                        {ui.contact.linkedinLabel}
-                    </a>
-
-                    {/* <a
-        className="btn btn-ghost"
-        href={github}
-        target="_blank"
-        rel="noreferrer"
-      >
-        {ui.contact.githubLabel}
-      </a> */}
+                        {ui.contact.githubLabel}
+                    </a> */}
 
                     {/* <a className="btn btn-ghost" href={cv}>
-        {ui.contact.cvLabel}
-      </a> */}
+                        {ui.contact.cvLabel}
+                    </a> */}
                 </div>
             </section>
 

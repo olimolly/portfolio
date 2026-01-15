@@ -15,6 +15,10 @@
         "heroTitle": "Hello",
         "heroSubtitle": "Je développe des applications web modernes avec Next.js et TypeScript, en traduisant des exigences complexes en solutions claires et utilisables."
     },
+    "projects": {
+        "projectsLabel": "Projets",
+        "experiencesLabel": "Expériences"
+    },
     "contact": {
         "title": "Contact",
         "description": "Contactez-moi pour une mission freelance, un poste, ou une collaboration.",

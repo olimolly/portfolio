@@ -9,7 +9,7 @@ export type UiMessages = {
         seeProjects: string;
     };
     home: Record<string, string>;
-    projects?: Record<string, string>;
+    projects: Record<string, string>;
     contact: {
         title: string;
         description: string;

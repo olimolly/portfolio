@@ -1,12 +1,12 @@
+import { createLangRegistry } from "./registry";
+import type { UiMessages } from "./ui.types";
 import type { Lang } from "@/lib/lang";
-import { UiMessages } from "./ui.types";
 
-// mapping langue → loader
-const UI_LOADERS: Record<Lang, () => Promise<UiMessages>> = {
-    en: () => import("./en/ui.json").then((m) => m.default),
-    fr: () => import("./fr/ui.json").then((m) => m.default),
-};
+export const uiRegistry = createLangRegistry<UiMessages>({
+    en: () => import("@/i18n/en/ui.json").then((m) => m.default as UiMessages),
+    fr: () => import("@/i18n/fr/ui.json").then((m) => m.default as UiMessages),
+});
 
 export async function getUi(lang: Lang): Promise<UiMessages> {
-    return UI_LOADERS[lang]();
+    return uiRegistry.get(lang);
 }

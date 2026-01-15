@@ -219,7 +219,7 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
                         </div>
 
                         <div className="min-w-0">
-                            <div className="text-sm text-white/60">Selected project</div>
+                            {/* <div className="text-sm text-white/60">Selected project</div> */}
                             <div className="truncate text-lg font-semibold text-white">{active.title}</div>
                         </div>
                     </div>
