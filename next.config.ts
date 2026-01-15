@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   images: { unoptimized: true },
   basePath: `/${repo}`,
-  assetPrefix: `/${repo}/`,
+  // assetPrefix: `/${repo}/`,
 };
 
 export default nextConfig;
