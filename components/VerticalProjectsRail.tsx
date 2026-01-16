@@ -378,13 +378,13 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
                                 if (e.key === "Enter" || e.key === " ") forceActive(i);
                             }}
                         >
-                            <div className="flex items-start gap-4">
+                            <div className="flex items-start gap-4 flex-col">
                                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/8">
                                     <Image src={withBasePath(p.logoSrc)} alt={p.title} width={28} height={28} />
                                 </div>
 
                                 <div className="min-w-0">
-                                    <h3 className="truncate text-xl font-semibold tracking-tight text-white">{p.title}</h3>
+                                    <h3 className="text-xl font-semibold tracking-tight text-white">{p.title}</h3>
                                     <p className="mt-2 text-sm leading-relaxed text-white/70">{p.summary}</p>
 
                                     {!!p.tags?.length && (
