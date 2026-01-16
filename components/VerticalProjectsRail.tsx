@@ -16,6 +16,7 @@ export type VerticalProject = {
     summary: string;
     logoSrc: string;
     href: string;
+    linkProject?: string;
     tags?: string[];
 };
 
@@ -54,6 +55,7 @@ const GLOW_MAX = 560;
 
 const ACTIVE_SWITCH_DELAY_MS = 140;
 const ACTIVE_MIN_RATIO = 0.22;
+const MANUAL_LOCK_MS = 900;
 
 const CARD_CLASS =
     "rounded-3xl border border-white/10 bg-white/4 p-6 backdrop-blur-2xl shadow-[0_0_0_1px_rgba(255,255,255,0.03)]";
@@ -80,6 +82,8 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
 
     const switchTimerRef = useRef<number | null>(null);
     const candidateRef = useRef<{ idx: number; ratio: number } | null>(null);
+    const manualLockUntilRef = useRef(0);
+    const manualLockTimerRef = useRef<number | null>(null);
 
     // IO => propose un candidat, puis commit après un petit délai si stable
     useEffect(() => {
@@ -89,6 +93,7 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
         if (!els.length) return;
 
         const commitCandidate = () => {
+            if (performance.now() < manualLockUntilRef.current) return;
             const c = candidateRef.current;
             if (!c) return;
             if (c.ratio < ACTIVE_MIN_RATIO) return;
@@ -140,6 +145,9 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
             if (switchTimerRef.current) window.clearTimeout(switchTimerRef.current);
             switchTimerRef.current = null;
             candidateRef.current = null;
+
+            if (manualLockTimerRef.current) window.clearTimeout(manualLockTimerRef.current);
+            manualLockTimerRef.current = null;
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [hasProjects, safeProjects.length, activeIndex]);
@@ -252,6 +260,28 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
 
     const progressPct = Math.round(scrollT * 100);
 
+    const forceActive = (i: number) => {
+        const el = itemRefs.current[i];
+        if (!el) return;
+
+        // lock IO pendant le scroll animé
+        manualLockUntilRef.current = performance.now() + MANUAL_LOCK_MS;
+        if (manualLockTimerRef.current) window.clearTimeout(manualLockTimerRef.current);
+        manualLockTimerRef.current = window.setTimeout(() => {
+            manualLockUntilRef.current = 0;
+        }, MANUAL_LOCK_MS);
+
+        // force l'actif tout de suite (carte gauche)
+        setActiveIndex(i);
+
+        // scroll vers la carte
+        el.scrollIntoView({
+            behavior: reduceMotion ? "auto" : "smooth",
+            block: "center",
+        });
+    };
+
+
     return (
         <div className="grid gap-8 lg:grid-cols-[340px_1fr]">
             {/* Desktop only: carte dynamique à gauche */}
@@ -297,9 +327,9 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
             {/* Right column */}
             <div ref={rightColRef} className="relative isolate">
                 {/* Halo en fond */}
-                <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+                <div className="pointer-events-none absolute inset-0 -z-10 overflow-visible">
                     <div
-                        className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-white blur-2xl"
+                        className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-white blur-sm"
                         style={{
                             left: haloPos.x,
                             top: haloPos.y,
@@ -340,7 +370,13 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
                             ref={(el) => {
                                 itemRefs.current[i] = el;
                             }}
-                            className={CARD_CLASS}
+                            className={`${CARD_CLASS} cursor-pointer`}
+                            role="button"
+                            tabIndex={0}
+                            onClick={() => forceActive(i)}
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter" || e.key === " ") forceActive(i);
+                            }}
                         >
                             <div className="flex items-start gap-4">
                                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/8">
@@ -369,19 +405,22 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
                                             className="inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-medium text-black hover:opacity-90"
                                             href={p.href}
                                         >
-                                            View project
-                                        </a>
-                                        <a
-                                            className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white hover:bg-white/10"
-                                            href={p.href}
-                                        >
                                             Read more
                                         </a>
+                                        {
+                                            p.linkProject && (
+                                                <a
+                                                    className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white hover:bg-white/10"
+                                                    href={p.linkProject}
+                                                >
+                                                    View project
+                                                </a>
+                                            )}
 
-                                        {/* sur desktop on garde l'indication, sur mobile inutile */}
-                                        <div className="ml-auto hidden text-xs text-white/50 lg:block">
+                                        {/* check active debug */}
+                                        {/* <div className="ml-auto hidden text-xs text-white/50 lg:block">
                                             {i === deferredActiveIndex ? "Active" : ""}
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>
