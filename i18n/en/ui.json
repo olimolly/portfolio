@@ -3,8 +3,7 @@
         "home": "Home",
         "projects": "Projects",
         "blog": "Blog",
-        "contact": "Contact",
-        "seeProjects": "See projects"
+        "contact": "Contact"
     },
     "cta": {
         "hireMe": "Contact me"
@@ -16,6 +15,8 @@
         "heroSubtitle": "I create modern web applications with Next.js and TypeScript, turning complex requirements into reliable, user-focused products."
     },
     "projects": {
+        "title": "Projects",
+        "seeProjects": "See projects",
         "projectsLabel": "Projects",
         "experiencesLabel": "Experiences"
     },

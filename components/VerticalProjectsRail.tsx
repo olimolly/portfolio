@@ -403,7 +403,7 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
                                     <div className="mt-5 flex flex-wrap gap-3">
                                         <a
                                             className="inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-medium text-black hover:opacity-90"
-                                            href={p.href}
+                                            href={withBasePath(p.href)}
                                         >
                                             Read more
                                         </a>

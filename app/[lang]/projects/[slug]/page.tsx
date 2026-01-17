@@ -10,9 +10,10 @@ import { listSlugs, getDoc } from "@/lib/content/reader";
 import { mdxComponents } from "@/lib/content/mdx-components";
 import { ExternalButtonLink } from "@/components/ExternalButtonLink";
 import { withBasePath } from "@/lib/withBasePath";
+import Link from "next/link";
 
 /* -----------------------------
-   Static params (export)
+    Static params (export)
 -------------------------------- */
 export function generateStaticParams() {
     return SUPPORTED_LANGS.flatMap((lang) =>
@@ -24,7 +25,7 @@ export function generateStaticParams() {
 }
 
 /* -----------------------------
-   Metadata (SEO)
+    Metadata (SEO)
 -------------------------------- */
 export async function generateMetadata({
     params,
@@ -61,7 +62,7 @@ export async function generateMetadata({
 }
 
 /* -----------------------------
-   Page
+    
 -------------------------------- */
 export default async function ProjectPage({
     params,
@@ -90,6 +91,11 @@ export default async function ProjectPage({
         <main className="container-page">
             {/* Header */}
             <header className="mb-10">
+
+                <h1 className="mb-3 text-4xl font-semibold tracking-tight">
+                    {doc.meta.title}
+                </h1>
+
                 <p className="text-sm text-muted">
                     {doc.meta.date
                         ? new Date(doc.meta.date).toLocaleDateString(lang)
@@ -109,15 +115,12 @@ export default async function ProjectPage({
                     ) : null}
                 </p>
 
-                <h1 className="mt-3 text-4xl font-semibold tracking-tight">
-                    {doc.meta.title}
-                </h1>
 
-                {doc.meta.summary ? (
+                {/* {doc.meta.summary ? (
                     <p className="mt-4 text-lg leading-relaxed text-muted">
                         {doc.meta.summary}
                     </p>
-                ) : null}
+                ) : null} */}
 
                 {doc.meta.cover ? (
                     <div className="mt-8 overflow-hidden rounded-3xl border border-border">
@@ -140,11 +143,13 @@ export default async function ProjectPage({
 
             {/* Footer CTA */}
             <footer className="mt-16 flex flex-wrap gap-3">
-                <ExternalButtonLink
-                    href={`/${lang}/projects/`}
-                    label=" ← Back to projects"
+                <a
                     className="btn btn-ghost"
-                />
+                    href={`/${lang}/`}
+                    rel="noreferrer"
+                >
+                    ← Back
+                </a>
                 <ExternalButtonLink
                     href={`/${lang}/contact/`}
                     label="Contact"

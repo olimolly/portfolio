@@ -36,7 +36,7 @@ export const mdxComponents: MDXComponents = {
 
     h2: ({ children, ...props }) => (
         <h2
-            className="mt-12 scroll-mt-28 text-2xl font-semibold tracking-tight"
+            className="scroll-mt-28 text-2xl font-semibold tracking-tight"
             {...props}
         >
             {children}

@@ -3,8 +3,7 @@
         "home": "Accueil",
         "projects": "Projets",
         "blog": "Blog",
-        "contact": "Contact",
-        "seeProjects": "Voir quelques projets."
+        "contact": "Contact"
     },
     "cta": {
         "hireMe": "Me contacter"
@@ -16,6 +15,8 @@
         "heroSubtitle": "Je développe des applications web modernes avec Next.js et TypeScript, en traduisant des exigences complexes en solutions claires et utilisables."
     },
     "projects": {
+        "title": "Projets",
+        "seeProjects": "Voir quelques projets.",
         "projectsLabel": "Projets",
         "experiencesLabel": "Expériences"
     },

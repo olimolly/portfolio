@@ -74,16 +74,16 @@ export default async function ContactPage({
                 </div>
             </section>
 
-            <section className="mt-6 card-sm">
+            {/* <section className="mt-6 card-sm">
                 <h2 className="text-lg font-semibold">{ui.nav.projects}</h2>
-                <p className="mt-2 text-muted">{ui.nav.seeProjects}</p>
+                <p className="mt-2 text-muted">{ui.projects.seeProjects}</p>
 
                 <div className="mt-4">
                     <Link className="btn btn-ghost" href={`/${lang}/projects/`}>
                         {ui.nav.projects}
                     </Link>
                 </div>
-            </section>
+            </section> */}
         </main>
 
     );

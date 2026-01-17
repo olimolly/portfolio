@@ -57,7 +57,7 @@ export default async function ProjectsPage({
     return (
         <main className="mx-auto w-full max-w-3xl px-6 py-12">
             <h1 className="text-4xl font-semibold tracking-tight text-white">
-                {ui.nav.projects}
+                {ui.projects.title}
             </h1>
 
             <ul className="mt-8 space-y-6">

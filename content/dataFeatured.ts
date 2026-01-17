@@ -78,7 +78,7 @@ export const vertical = (lang: string): VerticalProject[] => [
         title: "D-Impulse",
         summary: "Consulting and digital agency",
         logoSrc: "/logos/d-impulse.png",
-        href: `/${lang}/projects/d-impulse/`,
+        href: `https://d-impulse.com/`,
         tags: ["Consulting", "Development"],
     },
     {

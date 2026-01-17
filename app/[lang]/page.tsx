@@ -43,9 +43,9 @@ export default async function Home({
                     {ui.home.heroTitle}
                 </h1>
 
-                <p className="mt-4 text-lg leading-relaxed text-slate-200">
+                <h2 className="mt-4 text-lg leading-relaxed text-slate-200">
                     {ui.home.heroSubtitle}
-                </p>
+                </h2>
 
                 <div className="mt-8 flex flex-wrap gap-3">
                     <Link

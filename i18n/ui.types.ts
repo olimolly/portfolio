@@ -6,7 +6,6 @@ export type UiMessages = {
         projects: string;
         blog: string;
         contact: string;
-        seeProjects: string;
     };
     home: Record<string, string>;
     projects: Record<string, string>;
