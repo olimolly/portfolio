@@ -28,6 +28,7 @@ export const vertical = (lang: string): VerticalProject[] => [
         summary: "Microservice config creator for role and group management.",
         logoSrc: "/logos/orbat-c.png",
         href: `/${lang}/projects/orbat-creator/`,
+        linkProject: `https://olimolly.github.io/orbat/editor/`,
         tags: ["Next.js", "TypeScript", "config generator"],
     },
     {
