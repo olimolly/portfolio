@@ -10,6 +10,8 @@ import { listSlugs, getDoc } from "@/lib/content/reader";
 import { mdxComponents } from "@/lib/content/mdx-components";
 import { ExternalButtonLink } from "@/components/ExternalButtonLink";
 import { withBasePath } from "@/lib/withBasePath";
+import Link from "next/link";
+import { getUi } from "@/i18n/getUi";
 
 /* -----------------------------
     Static params (export)
@@ -70,6 +72,7 @@ export default async function ProjectPage({
 }) {
     const { lang: rawLang, slug } = await params;
     const lang: Lang = parseLang(rawLang);
+    const ui = await getUi(lang);
 
     if (!slug) notFound();
 
@@ -129,19 +132,18 @@ export default async function ProjectPage({
             </header>
 
             {/* MDX content */}
-            <article className="prose prose-neutral max-w-none">
+            <article className="prose prose-neutral max-w-none text-white/80">
                 {content}
             </article>
 
             {/* Footer CTA */}
             <footer className="mt-16 flex flex-wrap gap-3">
-                <a
+                <Link
                     className="btn btn-ghost"
                     href={`/${lang}/projects`}
-                    rel="noreferrer"
                 >
-                    Projects
-                </a>
+                    ← {ui.nav.projects}
+                </Link>
                 <ExternalButtonLink
                     href="https://www.linkedin.com/in/olivier-morelle-673655194/"
                     label="Contact"

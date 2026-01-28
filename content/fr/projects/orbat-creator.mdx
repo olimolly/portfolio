@@ -4,6 +4,29 @@ summary: "Microservice config creator for role and group management."
 tags: ["Next.js", "TypeScript", "Prisma"]
 ---
 
-## Overview
+## Présentation
+### ORBAT Creator est une application web permettant de créer, modifier et exporter des diagrammes ORBAT (Order of Battle) de type militaire, de manière rapide, claire et réutilisable.
 
-Draft offline to generate json config files. wip
+### Pourquoi ORBAT Creator ?
+Créer des diagrammes ORBAT clairs implique généralement de se battre avec des outils de dessin. ORBAT Creator se concentre sur l'essentiel :
+
+- Hiérarchies structurées des unités (chefs, unités, sous-unités)
+- Mise en page cohérente et connecteurs lisibles
+- Modifications rapides (renommer, réorganiser, changer le type/rôle d'une unité)
+- Données exportables que vous pouvez réutiliser dans d'autres outils
+
+### Principales fonctionnalités
+
+- **Éditeur de hiérarchie** : créez des structures à plusieurs niveaux (parent → enfant) et réorganisez-les facilement
+- **Tableau visuel** : rendu interactif des diagrammes avec connecteurs
+- **Types et rôles des unités** : types d'unités standardisés avec étiquettes/icônes
+- **Modèles** : partez de mises en page prédéfinies pour les nœuds/arêtes (par exemple, L1U3, L2U6, etc.)
+- **Importation/exportation** : exportation JSON pour le stockage/partage + pipeline de rendu compatible SVG *(si activé dans votre build)*
+
+### Stack technique
+
+- Next.js (App Router) + TypeScript
+- Tailwind CSS
+- Rendu SVG côté client pour les diagrammes
+
+Traduit avec DeepL.com (version gratuite)
