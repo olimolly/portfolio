@@ -151,7 +151,7 @@ export default async function ProjectPage({
                     ← Back
                 </a>
                 <ExternalButtonLink
-                    href={`/${lang}/contact/`}
+                    href="https://www.linkedin.com/in/olivier-morelle-673655194/"
                     label="Contact"
                     className="btn btn-primary"
                 />
