@@ -4,8 +4,6 @@ import { parseLang, SUPPORTED_LANGS, type Lang } from "@/lib/lang";
 import { getUi } from "@/i18n/getUi";
 import VerticalProjectsRail from "@/components/VerticalProjectsRail";
 import { vertical } from "@/content/dataFeatured";
-import HeroParallax from "@/components/HeroParallax";
-import { featured } from "@/content/dataVertical";
 import Link from "next/link";
 
 export function generateStaticParams() {

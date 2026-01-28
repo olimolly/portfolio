@@ -1,14 +1,6 @@
 import { VerticalProject } from "@/components/VerticalProjectsRail";
 
 export const vertical = (lang: string): VerticalProject[] => [
-    // {
-    //     slug: "ambassade-",
-    //     title: "Ambassade de France en Autriche",
-    //     summary: "Operations, events, and content system for a gaming community.",
-    //     logoSrc: "/logos/amba-test-3d.png", // logoSrc: "/logos/amba-min-72.png",
-    //     href: `/${lang}/projects/ambassade/`,
-    //     tags: ["Administration des systèmes.", "GLPI"],
-    // },
     {
         slug: "ambassade",
         title: "Ambassade de France en Autriche",

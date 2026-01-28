@@ -10,7 +10,6 @@ import { listSlugs, getDoc } from "@/lib/content/reader";
 import { mdxComponents } from "@/lib/content/mdx-components";
 import { ExternalButtonLink } from "@/components/ExternalButtonLink";
 import { withBasePath } from "@/lib/withBasePath";
-import Link from "next/link";
 
 /* -----------------------------
     Static params (export)
@@ -115,13 +114,6 @@ export default async function ProjectPage({
                     ) : null}
                 </p>
 
-
-                {/* {doc.meta.summary ? (
-                    <p className="mt-4 text-lg leading-relaxed text-muted">
-                        {doc.meta.summary}
-                    </p>
-                ) : null} */}
-
                 {doc.meta.cover ? (
                     <div className="mt-8 overflow-hidden rounded-3xl border border-border">
                         <Image
@@ -145,10 +137,10 @@ export default async function ProjectPage({
             <footer className="mt-16 flex flex-wrap gap-3">
                 <a
                     className="btn btn-ghost"
-                    href={`/${lang}/`}
+                    href={`/${lang}/projects`}
                     rel="noreferrer"
                 >
-                    ← Back
+                    Projects
                 </a>
                 <ExternalButtonLink
                     href="https://www.linkedin.com/in/olivier-morelle-673655194/"

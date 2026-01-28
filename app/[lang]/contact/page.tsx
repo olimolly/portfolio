@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { parseLang, SUPPORTED_LANGS, type Lang } from "@/lib/lang";
 import { getUi } from "@/i18n/getUi";
-import Link from "next/link";
 import { ExternalButtonLink } from "@/components/ExternalButtonLink";
 
 export function generateStaticParams() {
@@ -32,10 +31,7 @@ export default async function ContactPage({
     const lang: Lang = parseLang(rawLang);
     const ui = await getUi(lang);
 
-    // const email = "mailto:your@email.com";
     const linkedin = "https://www.linkedin.com/in/olivier-morelle-673655194/";
-    const github = "https://github.com/";
-    // const cv = `/${lang}/cv/`; //
 
     return (
         <main className="container-page">
@@ -50,40 +46,14 @@ export default async function ContactPage({
                         {ui.contact.text}
                     </p>
 
-                    {/* <a className="btn btn-primary" href={email}>
-                        {ui.contact.emailLabel}
-                    </a> */}
-
                     <ExternalButtonLink
                         href={linkedin}
                         label={ui.contact.linkedinLabel}
                     />
 
-                    {/* <a
-                        className="btn btn-ghost"
-                        href={github}
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        {ui.contact.githubLabel}
-                    </a> */}
-
-                    {/* <a className="btn btn-ghost" href={cv}>
-                        {ui.contact.cvLabel}
-                    </a> */}
                 </div>
             </section>
 
-            {/* <section className="mt-6 card-sm">
-                <h2 className="text-lg font-semibold">{ui.nav.projects}</h2>
-                <p className="mt-2 text-muted">{ui.projects.seeProjects}</p>
-
-                <div className="mt-4">
-                    <Link className="btn btn-ghost" href={`/${lang}/projects/`}>
-                        {ui.nav.projects}
-                    </Link>
-                </div>
-            </section> */}
         </main>
 
     );
