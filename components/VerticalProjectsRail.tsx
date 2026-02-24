@@ -57,8 +57,8 @@ const ACTIVE_SWITCH_DELAY_MS = 140;
 const ACTIVE_MIN_RATIO = 0.22;
 const MANUAL_LOCK_MS = 900;
 
-const CARD_CLASS =
-    "rounded-3xl border border-white/10 bg-white/4 p-6 backdrop-blur-2xl shadow-[0_0_0_1px_rgba(255,255,255,0.03)]";
+const CARD_CLASS = "rounded-3xl border border-white/10 bg-white/6 p-6 shadow-[0_10px_40px_rgba(0,0,0,0.35)]";
+const CARD_CLASS_GLASS = `${CARD_CLASS} backdrop-blur-2xl`;
 
 export default function VerticalProjectsRail({ projects }: { projects: VerticalProject[] }) {
     const safeProjects = projects ?? [];
@@ -249,6 +249,17 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
     if (!hasProjects) return null;
 
     const active = safeProjects[clamp(deferredActiveIndex, 0, safeProjects.length - 1)];
+    const total = safeProjects.length;
+
+    // index affiché (celui qui drive la carte sticky)
+    const idx = clamp(deferredActiveIndex, 0, Math.max(0, total - 1));
+
+    // 1-based pour l’affichage (1 / N)
+    const step = total ? idx + 1 : 0;
+
+    // % en “steps” (0% si 0 item, 100% sur le dernier)
+    const progressPct = total <= 1 ? 100 : Math.round((idx / (total - 1)) * 100);
+    // const progressPct = Math.round(scrollT * 100);
 
     const pulse = 1 - Math.abs(2 * scrollT - 1);
 
@@ -257,8 +268,6 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
 
     const coreOpacity = reduceMotion ? 0.18 : 0.14 + 0.10 * pulse;
     const glowOpacity = reduceMotion ? 0.08 : 0.05 + 0.08 * pulse;
-
-    const progressPct = Math.round(scrollT * 100);
 
     const forceActive = (i: number) => {
         const el = itemRefs.current[i];
@@ -285,7 +294,7 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
     return (
         <div className="grid gap-8 lg:grid-cols-[340px_1fr]">
             {/* Desktop only: carte dynamique à gauche */}
-            <aside className="hidden lg:block lg:sticky lg:top-16 lg:h-[calc(100vh-4rem)]">
+            <aside className="hidden lg:block lg:sticky lg:top-4 self-start z-20">
                 <div className={CARD_CLASS}>
                     <div className="flex items-center gap-4">
                         <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/8">
@@ -297,7 +306,7 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
                         </div>
                     </div>
 
-                    <p className="mt-4 text-sm leading-relaxed text-white/70">{active.summary}</p>
+                    {/* <p className="mt-4 text-sm leading-relaxed text-white/70">{active.summary}</p> */}
 
                     {!!active.tags?.length && (
                         <div className="mt-4 flex flex-wrap gap-2">
@@ -314,8 +323,8 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
 
                     <div className="mt-6">
                         <div className="mb-2 flex items-center justify-between text-xs text-white/60">
-                            <span>Path</span>
-                            <span>{progressPct}%</span>
+                            <span>{active.title}</span>
+                            <span>{step}/{total}</span>
                         </div>
                         <div className="h-2 w-full overflow-hidden rounded-full border border-white/10 bg-white/5">
                             <div className="h-full bg-white/90" style={{ width: `${progressPct}%` }} />
@@ -370,7 +379,7 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
                             ref={(el) => {
                                 itemRefs.current[i] = el;
                             }}
-                            className={`${CARD_CLASS} cursor-pointer`}
+                            className={`${CARD_CLASS_GLASS} cursor-pointer`}
                             role="button"
                             tabIndex={0}
                             onClick={() => forceActive(i)}

@@ -23,7 +23,7 @@ export default async function LangLayout({
 
     return (
         <TranslationsProvider value={ui}>
-            <div className="min-h-screen p-6 bg-gradient-to-br from-[#050b14] via-[#0b1f3a] to-[#0b1f3a] text-slate-100 overflow-hidden ">
+            <div className="min-h-screen p-6 bg-gradient-to-br from-[#050b14] via-[#0b1f3a] to-[#0b1f3a] text-slate-100 overflow-visible ">
                 <header className="mb-6 flex items-center gap-4">
                     <nav className="flex items-center gap-3">
                         <Link

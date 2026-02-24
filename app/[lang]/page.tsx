@@ -36,7 +36,9 @@ export default async function Home({
 
     return (
         <main className="mx-auto w-full max-w-7xl px-6 py-16 min-h-[500px]">
-            <section className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur">
+            <section className="relative isolate rounded-3xl border border-white/10 bg-white/5 p-8">
+                <div className="pointer-events-none absolute inset-0 -z-10 backdrop-blur" />
+
                 <h1 className="text-4xl font-semibold tracking-tight text-white">
                     {ui.home.heroTitle}
                 </h1>

@@ -12,7 +12,7 @@
         "title": "Home",
         "description": "Personal portfolio of Olivier, full-stack web developer.",
         "heroTitle": "Hi, I am Olivier, I like dark blue & scroll effects.",
-        "heroSubtitle": "I create modern web applications with Next.js and TypeScript and I am interested in discovering new modern web tools."
+        "heroSubtitle": "I like creating modern web apps. I am interested in discovering new web tools and art production content."
     },
     "projects": {
         "title": "Projects",
@@ -23,8 +23,8 @@
     "contact": {
         "title": "Contact",
         "description": "Get in touch for freelance work, full-time roles, or collaborations.",
-        "headline": "Let’s create apps together !",
-        "text": "I am open to projects and opportunities. Contact me: ",
+        "headline": "Let’s create projects together !",
+        "text": "I am open to projects and opportunities. Contact me ➜ ",
         "emailLabel": "Email",
         "linkedinLabel": "LinkedIn",
         "githubLabel": "GitHub",

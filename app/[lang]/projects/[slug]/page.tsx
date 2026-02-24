@@ -132,7 +132,9 @@ export default async function ProjectPage({
             </header>
 
             {/* MDX content */}
-            <article className="prose prose-neutral max-w-none text-white/80">
+            <article className="prose prose-neutral max-w-none text-white/80
+                [&_blockquote]:!text-white/50
+            ">
                 {content}
             </article>
 
