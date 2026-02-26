@@ -69,6 +69,16 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
         return window.matchMedia("(prefers-reduced-motion: reduce)")?.matches ?? false;
     }, []);
 
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const mq = window.matchMedia("(max-width: 1024px)"); // lg
+        const sync = () => setIsMobile(mq.matches);
+        sync();
+        mq.addEventListener?.("change", sync);
+        return () => mq.removeEventListener?.("change", sync);
+    }, []);
+
     const itemRefs = useRef<Array<HTMLDivElement | null>>([]);
     const rightColRef = useRef<HTMLDivElement | null>(null);
 
@@ -335,40 +345,45 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
 
             {/* Right column */}
             <div ref={rightColRef} className="relative isolate">
+
                 {/* Halo en fond */}
-                <div className="pointer-events-none absolute inset-0 -z-10 overflow-visible">
-                    <div
-                        className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-white blur-sm"
-                        style={{
-                            left: haloPos.x,
-                            top: haloPos.y,
-                            width: coreSize,
-                            height: coreSize,
-                            opacity: coreOpacity,
-                        }}
-                    />
-                    <div
-                        className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-white blur-3xl"
-                        style={{
-                            left: haloPos.x,
-                            top: haloPos.y,
-                            width: glowSize,
-                            height: glowSize,
-                            opacity: glowOpacity,
-                        }}
-                    />
-                </div>
+                {!isMobile && (
+                    <div className="pointer-events-none absolute inset-0 -z-10 overflow-visible">
+                        <div
+                            className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-white blur-sm"
+                            style={{
+                                left: haloPos.x,
+                                top: haloPos.y,
+                                width: coreSize,
+                                height: coreSize,
+                                opacity: coreOpacity,
+                            }}
+                        />
+                        <div
+                            className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-white blur-3xl"
+                            style={{
+                                left: haloPos.x,
+                                top: haloPos.y,
+                                width: glowSize,
+                                height: glowSize,
+                                opacity: glowOpacity,
+                            }}
+                        />
+                    </div>
+                )}
 
                 {/* Mobile: petite progress bar simple au-dessus de la liste (optionnel, utile) */}
-                <div className="mb-4 lg:hidden">
-                    <div className="mb-2 flex items-center justify-between text-xs text-white/60">
-                        <span>Path</span>
-                        <span>{progressPct}%</span>
+                {!isMobile && (
+                    <div className="mb-4 lg:hidden">
+                        <div className="mb-2 flex items-center justify-between text-xs text-white/60">
+                            <span>Path</span>
+                            <span>{progressPct}%</span>
+                        </div>
+                        <div className="h-2 w-full overflow-hidden rounded-full border border-white/10 bg-white/5">
+                            <div className="h-full bg-white/90" style={{ width: `${progressPct}%` }} />
+                        </div>
                     </div>
-                    <div className="h-2 w-full overflow-hidden rounded-full border border-white/10 bg-white/5">
-                        <div className="h-full bg-white/90" style={{ width: `${progressPct}%` }} />
-                    </div>
-                </div>
+                )}
 
                 {/* Liste */}
                 <div className="flex flex-col" style={{ gap: GAP_PX }}>
