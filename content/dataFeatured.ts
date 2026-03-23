@@ -29,7 +29,7 @@ export const vertical = (lang: string): VerticalProject[] => [
         summary: "Event Management Web Application with Admin Dashboard.",
         logoSrc: "/logos/GESE-7e.png",
         href: `/${lang}/projects/gese/`,
-        linkProject: `https://a4units.com/en/missions`,
+        linkProject: `https://a4units.com/en/concept`,
         tags: ["Next.js", "TypeScript", "Full-Stack"],
     },
     {
