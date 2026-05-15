@@ -1,6 +1,21 @@
+// content/dataFeatured.ts
+import fs from "node:fs";
+import path from "node:path";
+import matter from "gray-matter";
 import { VerticalProject } from "@/components/VerticalProjectsRail";
 
-export const vertical = (lang: string): VerticalProject[] => [
+function getMdxSummary(lang: string, slug: string) {
+    const filePath = path.join(process.cwd(), "content", lang, "projects", `${slug}.mdx`);
+
+    if (!fs.existsSync(filePath)) return null;
+
+    const raw = fs.readFileSync(filePath, "utf8");
+    const { data } = matter(raw);
+
+    return typeof data.summary === "string" ? data.summary : null;
+}
+
+export const verticalBase = (lang: string): VerticalProject[] => [
     {
         slug: "ambassade",
         title: "Ambassade de France en Autriche",
@@ -83,3 +98,9 @@ export const vertical = (lang: string): VerticalProject[] => [
         tags: ["PHP5", "SOAP API", "VM", "Batch"],
     },
 ];
+
+export const vertical = (lang: string): VerticalProject[] =>
+    verticalBase(lang).map((project) => ({
+        ...project,
+        summary: getMdxSummary(lang, project.slug) ?? project.summary,
+    }));

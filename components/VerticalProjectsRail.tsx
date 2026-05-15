@@ -441,7 +441,6 @@ export default function VerticalProjectsRail({ projects }: { projects: VerticalP
                                                     View project
                                                 </a>
                                             )}
-
                                         {/* check active debug */}
                                         {/* <div className="ml-auto hidden text-xs text-white/50 lg:block">
                                             {i === deferredActiveIndex ? "Active" : ""}
