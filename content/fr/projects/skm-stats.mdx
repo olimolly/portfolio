@@ -1,0 +1,25 @@
+---
+title: "SKM Stats"
+summary: "Microservice de collecte, sécurisation et exposition de statistiques de sessions Arma Reforger via ingestion d’événements serveur, stockage en base de données et API REST interne."
+date: "2026-06-06"
+tags: [
+  "Fastify",
+  "TypeScript",
+  "Prisma",
+  "PostgreSQL",
+  "REST API",
+  "Arma Reforger",
+  "Enfusion Engine",
+  "Reforger Workbench"
+]
+
+---
+
+## Vue d’ensemble
+
+- Conception et développement d’un microservice dédié à la collecte de statistiques de gameplay et de sessions depuis des serveurs Arma Reforger.
+- Mise en place d’un endpoint sécurisé d’ingestion d’événements avec validation par clé API, whitelist serveur et contrôle d’accès par IP.
+- Structuration des payloads entrants pour suivre les sessions, les objectifs et les événements clés utiles à de futures fonctionnalités de RETEX.
+- Stockage des événements validés dans PostgreSQL avec Prisma, en séparant clairement la logique d’ingestion et l’accès aux données.
+- Exposition d’endpoints REST internes consommés par le portfolio pour afficher les données de session sans exposer directement le service d’ingestion.
+- Architecture découplée permettant au site principal de rester disponible même si le microservice de statistiques est temporairement indisponible.

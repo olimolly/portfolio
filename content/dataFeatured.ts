@@ -17,6 +17,14 @@ function getMdxSummary(lang: string, slug: string) {
 
 export const verticalBase = (lang: string): VerticalProject[] => [
     {
+        slug: "skm-stats",
+        title: "SKM Stats",
+        summary: "Microservice for collecting, securing and exposing Arma Reforger session statistics through server-side event ingestion, database storage and internal REST API access.",
+        logoSrc: "/logos/enfusion.svg",
+        href: `/${lang}/projects/skm-stats/`,
+        tags: ["Fastify", "TypeScript", "Prisma", "PostgreSQL", "REST API", "Enfusion Engine", "Reforger Workbench"],
+    },
+    {
         slug: "ambassade",
         title: "Ambassade de France en Autriche",
         summary: "System administrator responsible for server operations, virtualized environments, asset management (GLPI), Network Operations and technical user support.",
