@@ -10,9 +10,9 @@
     },
     "home": {
         "title": "Home",
-        "description": "Portfolio perso, full-stack développeur web.",
-        "heroTitle": "Hello",
-        "heroSubtitle": "Je développe des applications web modernes avec Next.js et TypeScript, je suis intéressé par la découverte de nouveaux outils web."
+        "description": "Portfolio d'Olivier, full-stack développeur web.",
+        "heroTitle": "J'aime le bleu et les effets de scroll.",
+        "heroSubtitle": "Je m'intéresse continuellement à l'architecture logiciel et je développe une obsession pour le sound design."
     },
     "projects": {
         "title": "Projets",

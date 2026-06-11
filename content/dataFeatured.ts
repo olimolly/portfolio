@@ -32,7 +32,7 @@ export const verticalBase = (lang: string): VerticalProject[] => [
     {
         slug: "orbat-creator",
         title: "Orbat Creator",
-        summary: "Microservice config creator for role and group management.",
+        summary: "Generate simple SVG and PNG files to visualise the ORBAT briefing at a glance.",
         logoSrc: "/logos/orbat-c.png",
         href: `/${lang}/projects/orbat-creator/`,
         linkProject: `https://olimolly.github.io/orbat/editor/`,
